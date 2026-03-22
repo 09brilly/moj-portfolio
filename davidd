@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>David Brilly | Portfolio</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Segoe UI', sans-serif;
+            background-color: #0f0f0f;
+            color: #eee;
+        }
+
+        /* NAV */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(15,15,15,0.95);
+            padding: 18px 40px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 100;
+            border-bottom: 1px solid #222;
+        }
+
+        nav .logo {
+            font-size: 20px;
+            font-weight: 600;
+            color: #e94560;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 30px;
+        }
+
+        nav ul a {
+            text-decoration: none;
+            color: #aaa;
+            font-size: 15px;
+            transition: color 0.3s;
+        }
+
+        nav ul a:hover {
+            color: #e94560;
+        }
+
+        /* HERO */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 40px 20px;
+            background: linear-gradient(135deg, #0f0f0f 0%, #1a1a2e 100%);
+        }
+
+        .hero h1 {
+            font-size: 56px;
+            font-weight: 700;
+            margin-bottom: 16px;
+            color: #fff;
+        }
+
+        .hero h1 span {
+            color: #e94560;
+        }
+
+        .hero p {
+            font-size: 20px;
+            color: #aaa;
+            margin-bottom: 40px;
+            max-width: 500px;
+            line-height: 1.6;
+        }
+
+        .btn {
+            padding: 14px 36px;
+            background: #e94560;
+            color: white;
+            border: none;
+            border-radius: 30px;
+            font-size: 16px;
+            cursor: pointer;
+            text-decoration: none;
+            transition: background 0.3s, transform 0.2s;
+        }
+
+        .btn:hover {
+            background: #c73652;
+            transform: translateY(-2px);
+        }
+
+        /* SEKCIJE */
+        section {
+            padding: 90px 40px;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        section h2 {
+            font-size: 36px;
+            margin-bottom: 40px;
+            color: #fff;
+            position: relative;
+            display: inline-block;
+        }
+
+        section h2::after {
+            content: '';
+            position: absolute;
+            bottom: -8px;
+            left: 0;
+            width: 50px;
+            height: 3px;
+            background: #e94560;
+            border-radius: 2px;
+        }
+
+        /* ABOUT */
+        .about-text {
+            font-size: 17px;
+            line-height: 1.9;
+            color: #bbb;
+            max-width: 680px;
+        }
+
+        /* SKILLS */
+        .skills-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            margin-top: 10px;
+        }
+
+        .skill-tag {
+            padding: 10px 22px;
+            border-radius: 30px;
+            font-size: 14px;
+            font-weight: 500;
+            border: 1px solid #333;
+            color: #ddd;
+            background: #1a1a1a;
+        }
+
+        .skill-tag.highlight {
+            background: #e94560;
+            border-color: #e94560;
+            color: white;
+        }
+
+        /* PROJECTS */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 24px;
+        }
+
+        .project-card {
+            background: #1a1a1a;
+            border: 1px solid #2a2a2a;
+            border-radius: 12px;
+            padding: 28px;
+            transition: transform 0.3s, border-color 0.3s;
+        }
+
+        .project-card:hover {
+            transform: translateY(-6px);
+            border-color: #e94560;
+        }
+
+        .project-card h3 {
+            font-size: 18px;
+            margin-bottom: 10px;
+            color: #fff;
+        }
+
+        .project-card p {
+            font-size: 14px;
+            color: #888;
+            line-height: 1.7;
+        }
+
+        .project-tag {
+            display: inline-block;
+            margin-top: 16px;
+            padding: 4px 12px;
+            background: #e9456022;
+            color: #e94560;
+            border-radius: 20px;
+            font-size: 12px;
+        }
+
+        /* CONTACT */
+        .contact-box {
+            background: #1a1a1a;
+            border: 1px solid #2a2a2a;
+            border-radius: 16px;
+            padding: 50px;
+            text-align: center;
+        }
+
+        .contact-box p {
+            color: #aaa;
+            font-size: 17px;
+            margin-bottom: 28px;
+            line-height: 1.7;
+        }
+
+        /* FOOTER */
+        footer {
+            text-align: center;
+            padding: 30px;
+            color: #444;
+            font-size: 13px;
+            border-top: 1px solid #1a1a1a;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- NAV -->
+    <nav>
+        <div class="logo">David Brilly</div>
+        <ul>
+            <li><a href="#about">About</a></li>
+            <li><a href="#skills">Skills</a></li>
+            <li><a href="#projects">Projects</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
+
+    <!-- HERO -->
+    <div class="hero">
+        <h1>Hi, I'm <span>David Brilly</span></h1>
+        <p>A carpentry student with a passion for building things — whether it's with wood or code.</p>
+        <a href="#contact" class="btn">Get in touch</a>
+    </div>
+
+    <!-- ABOUT -->
+    <section id="about">
+        <h2>About Me</h2>
+        <p class="about-text">
+            I'm David, a carpentry student from Slovenia. I love working with my hands and creating things that last. 
+            Recently I've started exploring the world of web development — because building for the web is just another 
+            form of craftsmanship. When I'm not in the workshop, you'll find me learning new skills and taking on new challenges.
+        </p>
+    </section>
+
+    <!-- SKILLS -->
+    <section id="skills">
+        <h2>Skills</h2>
+        <div class="skills-grid">
+            <span class="skill-tag highlight">Carpentry</span>
+            <span class="skill-tag highlight">Woodworking</span>
+            <span class="skill-tag highlight">HTML</span>
+            <span class="skill-tag highlight">CSS</span>
+            <span class="skill-tag">Problem Solving</span>
+            <span class="skill-tag">Attention to Detail</span>
+            <span class="skill-tag">Teamwork</span>
+            <span class="skill-tag">Fast Learner</span>
+        </div>
+    </section>
+
+    <!-- PROJECTS -->
+    <section id="projects">
+        <h2>Projects</h2>
+        <div class="projects-grid">
+            <div class="project-card">
+                <h3>My Portfolio</h3>
+                <p>This website you're looking at right now. Built from scratch with HTML and CSS.</p>
+                <span class="project-tag">HTML & CSS</span>
+            </div>
+            <div class="project-card">
+                <h3>Coming Soon</h3>
+                <p>My next project is already in the works. Stay tuned!</p>
+                <span class="project-tag">In progress</span>
+            </div>
+            <div class="project-card">
+                <h3>Coming Soon</h3>
+                <p>More projects on the way as I keep learning and building.</p>
+                <span class="project-tag">In progress</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section id="contact">
+        <h2>Contact</h2>
+        <div class="contact-box">
+            <p>Have a question or want to work together? Feel free to reach out!</p>
+            <a href="mailto:david.brilly09@gmail.com" class="btn">Send me an email</a>
+        </div>
+    </section>
+
+    <footer>
+        <p>© 2026 David Brilly — Built with ❤️ and a lot of curiosity</p>
+    </footer>
+
+</body>
+</html>
